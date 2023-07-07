@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Program.MAUI.Views.ClientDetailView"
+             Title="Client Creation"
+             NavigatedFrom="OnLeaving"
+             NavigatedTo="OnArriving">
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height=" 1*"/>
+                <RowDefinition Height=" 1*"/>
+                <RowDefinition Height=" 1*"/>
+                <RowDefinition Height=" 5*"/>
+                <RowDefinition Height=" 2*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label
+                Text="Enter Name(First Last):"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Grid.Row="0"
+                Grid.Column="0"
+                />
+            <Entry
+                Text="{Binding Path=Name, Mode=TwoWay}"
+                Grid.Row="0"
+                Grid.Column="1"
+                ></Entry>
+
+            <Label
+                Text="Enter Notes"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Grid.Row="1"
+                Grid.Column="0"
+                />
+            <Entry
+                Text="{Binding Path=Notes, Mode=TwoWay}"
+                Grid.Row="1"
+                Grid.Column="1"
+                ></Entry>
+
+
+            <Label
+                    Text="Enter Active Level"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    />
+            <StackLayout
+                RadioButtonGroup.GroupName="Active Level"
+                RadioButtonGroup.SelectedValue="{Binding IsActiveString}"
+                Grid.Row="2"
+                Grid.Column="1">
+                <RadioButton Content="True"
+                                 Value="True"/>
+                <RadioButton Content="False"
+                                 Value="False"/>
+            </StackLayout>
+            
+            <Button Grid.Row="6" Grid.Column="0" Text="Ok" Clicked="AddClicked"></Button>
+            <Button  Grid.Row="6" Grid.Column="1" Text="Cancel" Clicked="CancelClicked"></Button>
+            </Grid>
+    </ScrollView>
+      
+</ContentPage>
